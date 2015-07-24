@@ -1,0 +1,25 @@
+# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm
+
+*.iml
+
+# User-specific stuff:
+.idea/
+
+## File-based project format:
+*.ipr
+*.iws
+
+## Plugin-specific files:
+
+# IntelliJ
+/out/
+
+# Ignore target folders
+target/
+
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
