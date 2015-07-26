@@ -62,16 +62,4 @@ public class SelectionSort<T extends Comparable<T>> {
   private <T extends Comparable<T>> boolean less(T i, T j) {
     return i.compareTo(j) < 0;
   }
-
-  public static void main(String[] args) {
-    Integer[] a = {4, 3, 5, 8, 9, 1, 2, 6, 7};
-
-    SelectionSort sort = new SelectionSort();
-
-    sort.sort(a);
-
-    for (int i = 0; i < a.length; i++) {
-      System.out.println(a[i]);
-    }
-  }
 }

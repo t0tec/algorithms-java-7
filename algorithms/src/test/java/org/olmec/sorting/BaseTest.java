@@ -25,9 +25,8 @@ public class BaseTest {
 
   protected Integer[] createReversed(final int size) {
     Integer[] reversed = createSorted(size);
-    Arrays.sort(reversed, Collections.reverseOrder());
 
-    print(reversed);
+    Arrays.sort(reversed, Collections.reverseOrder());
 
     return reversed;
   }
