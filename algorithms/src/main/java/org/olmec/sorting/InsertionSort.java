@@ -13,7 +13,7 @@ package org.olmec.sorting;
  *
  * http://www.sorting-algorithms.com/insertion-sort & http://en.wikipedia.org/wiki/Insertion_sort
  *
- * @param <T> the type of objects that he will use to sort
+ * @param <T> the type of objects to be sorted
  * @author t0tec (t0tec.olmec@gmail.com)
  * @version $Id$
  * @since 1.0
