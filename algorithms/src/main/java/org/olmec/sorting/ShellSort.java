@@ -38,8 +38,10 @@ public class ShellSort<T extends Comparable<T>> {
 
     while (h >= 1) {
       for (int i = h; i < n; i++) {
-        for (int j = i; j >= h && less(array[j], array[j - h]); j -= h) {
+        int j = i;
+        while (j >= h && less(array[j], array[j - h])) {
           swap(array, j, j - h);
+          j -= h;
         }
       }
       h /= 3;

@@ -26,7 +26,7 @@ public class ShellSortTest extends BaseTest {
   public void testEmpty() {
     Integer[] array = new Integer[0];
     new ShellSort<Integer>().sort(array);
-    assertTrue("Selection sort unsorted error. Result = " + print(array),
+    assertTrue("Shell sort unsorted error. Result = " + print(array),
                new SortingValidator().isSorted(array));
   }
 
@@ -34,7 +34,7 @@ public class ShellSortTest extends BaseTest {
   public void testSizeOne() {
     Integer[] array = {1};
     new ShellSort<Integer>().sort(array);
-    assertTrue("Selection sort unsorted error. Result = " + print(array),
+    assertTrue("Shell sort unsorted error. Result = " + print(array),
                new SortingValidator().isSorted(array));
   }
 
@@ -44,7 +44,7 @@ public class ShellSortTest extends BaseTest {
 
     Integer[] unsorted = createRandom(SIZE_LOW);
     sort.sort(unsorted);
-    assertTrue("Selection sort unsorted error. Result = " + print(unsorted),
+    assertTrue("Shell sort unsorted error. Result = " + print(unsorted),
                new SortingValidator().isSorted(unsorted));
   }
 
@@ -54,7 +54,7 @@ public class ShellSortTest extends BaseTest {
 
     Integer[] unsorted = createRandom(SIZE_MEDIUM);
     sort.sort(unsorted);
-    assertTrue("Selection sort unsorted error. Result = " + print(unsorted),
+    assertTrue("Shell sort unsorted error. Result = " + print(unsorted),
                new SortingValidator().isSorted(unsorted));
   }
 
@@ -64,7 +64,7 @@ public class ShellSortTest extends BaseTest {
 
     Integer[] unsorted = createRandom(SIZE_BIG);
     sort.sort(unsorted);
-    assertTrue("Selection sort unsorted error. Result = " + print(unsorted),
+    assertTrue("Shell sort unsorted error. Result = " + print(unsorted),
                new SortingValidator().isSorted(unsorted));
   }
 
@@ -74,7 +74,7 @@ public class ShellSortTest extends BaseTest {
 
     Integer[] sorted = createSorted(SIZE_LOW);
     sort.sort(sorted);
-    assertTrue("Selection sort unsorted error. Result = " + print(sorted),
+    assertTrue("Shell sort unsorted error. Result = " + print(sorted),
                new SortingValidator().isSorted(sorted));
   }
 
@@ -84,7 +84,7 @@ public class ShellSortTest extends BaseTest {
 
     Integer[] sorted = createSorted(SIZE_MEDIUM);
     sort.sort(sorted);
-    assertTrue("Selection sort unsorted error. Result = " + print(sorted),
+    assertTrue("Shell sort unsorted error. Result = " + print(sorted),
                new SortingValidator().isSorted(sorted));
   }
 
@@ -94,7 +94,7 @@ public class ShellSortTest extends BaseTest {
 
     Integer[] sorted = createSorted(SIZE_BIG);
     sort.sort(sorted);
-    assertTrue("Selection sort unsorted error. Result = " + print(sorted),
+    assertTrue("Shell sort unsorted error. Result = " + print(sorted),
                new SortingValidator().isSorted(sorted));
   }
 
@@ -104,7 +104,7 @@ public class ShellSortTest extends BaseTest {
 
     Integer[] reversed = createReversed(SIZE_LOW);
     sort.sort(reversed);
-    assertTrue("Selection sort unsorted error. Result = " + print(reversed),
+    assertTrue("Shell sort unsorted error. Result = " + print(reversed),
                new SortingValidator().isSorted(reversed));
   }
 
@@ -114,7 +114,7 @@ public class ShellSortTest extends BaseTest {
 
     Integer[] reversed = createReversed(SIZE_MEDIUM);
     sort.sort(reversed);
-    assertTrue("Selection sort unsorted error. Result = " + print(reversed),
+    assertTrue("Shell sort unsorted error. Result = " + print(reversed),
                new SortingValidator().isSorted(reversed));
   }
 
@@ -124,7 +124,7 @@ public class ShellSortTest extends BaseTest {
 
     Integer[] reversed = createReversed(SIZE_BIG);
     sort.sort(reversed);
-    assertTrue("Selection sort unsorted error. Result = " + print(reversed),
+    assertTrue("Shell sort unsorted error. Result = " + print(reversed),
                new SortingValidator().isSorted(reversed));
   }
 }
