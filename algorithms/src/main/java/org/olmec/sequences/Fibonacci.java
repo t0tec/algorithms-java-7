@@ -1,5 +1,6 @@
 package org.olmec.sequences;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,11 +22,12 @@ public class Fibonacci {
   private final boolean recursive;
 
   /**
+   * Constructor given n and recursive parameters
    *
-   * @param n the number n to give to sequence Fn
+   * @param n         the number n to give to sequence Fn
    * @param recursive calculate Fibonacci number(s) recursive and otherwise iterative
    */
-  public Fibonacci(int n, boolean recursive) {
+  public Fibonacci(final int n, final boolean recursive) {
     validate(n);
     this.n = n;
     this.recursive = recursive;
@@ -33,9 +35,10 @@ public class Fibonacci {
 
   /**
    * Calculates the Fn sequence number
+   *
    * @return the Fn sequence number
    */
-  public int calculate() {
+  public BigInteger calculate() {
     return recursive ? recursive(n) : iterative(n);
   }
 
@@ -45,12 +48,12 @@ public class Fibonacci {
    * @param n the number n to give to sequence Fn
    * @return the Fn sequence number (with n = 10 F(10) = 55)
    */
-  private int recursive(final int n) {
+  private BigInteger recursive(final int n) {
     if (n == 0 || n == 1) {
-      return n;
+      return BigInteger.valueOf(n);
     }
 
-    return recursive(n - 1) + recursive(n - 2);
+    return recursive(n - 1).add(recursive(n - 2));
   }
 
   /**
@@ -59,22 +62,22 @@ public class Fibonacci {
    * @param n the number n to give to sequence Fn
    * @return the Fn sequence number (with n = 10 F(10) = 55)
    */
-  private int iterative(final int n) {
+  private BigInteger iterative(final int n) {
     validate(n);
 
     if (n == 0) {
-      return 0;
+      return BigInteger.ZERO;
     }
 
     if (n == 1 || n == 2) {
-      return 1;
+      return BigInteger.ONE;
     }
 
-    int previous = 1;
-    int current = 1;
-    int element = 0;
+    BigInteger previous = BigInteger.ONE;
+    BigInteger current = BigInteger.ONE;
+    BigInteger element = BigInteger.ZERO;
     for (int i = 2; i < n; i++) {
-      element = previous + current;
+      element = previous.add(current);
       previous = current;
       current = element;
     }
@@ -86,8 +89,8 @@ public class Fibonacci {
    *
    * @return the Fibonacci sequence numbers Fn
    */
-  public int[] getSequence() {
-    int[] sequence = new int[n + 1];
+  public BigInteger[] getSequence() {
+    BigInteger[] sequence = new BigInteger[n + 1];
     for (int i = 0; i < sequence.length; i++) {
       sequence[i] = recursive ? recursive(i) : iterative(i);
     }
@@ -95,16 +98,16 @@ public class Fibonacci {
   }
 
   /**
-   * Returns the Fibonacci sequence numbers lower or equal to n in a List
+   * Returns the Fibonacci sequence numbers lower than to n in a List
    *
-   * @return the Fibonacci sequence numbers lower or equal to n in a List
+   * @return the Fibonacci sequence numbers lower than to n in a List
    */
-  public List<Integer> getSequenceLowerThanN() {
-    List<Integer> sequence = new ArrayList<Integer>();
+  public List<BigInteger> getSequenceLowerThanN() {
+    List<BigInteger> sequence = new ArrayList<BigInteger>();
 
     int i = 1;
-    int fib = 0;
-    while (fib <= n) {
+    BigInteger fib = BigInteger.ZERO;
+    while (fib.compareTo(BigInteger.valueOf(n)) < 0) {
       sequence.add(fib);
       fib = recursive ? recursive(i) : iterative(i);
       i++;

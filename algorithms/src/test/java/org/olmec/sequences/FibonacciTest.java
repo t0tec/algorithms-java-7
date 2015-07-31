@@ -1,7 +1,9 @@
 package org.olmec.sequences;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
+import java.math.BigInteger;
 import java.util.List;
 
 import static org.junit.Assert.assertArrayEquals;
@@ -21,33 +23,52 @@ public class FibonacciTest {
 
   @Test
   public void tenthNumberInFibonacciSequenceRecursive() {
-    assertEquals(55, new Fibonacci(10, true).calculate());
+    assertEquals(BigInteger.valueOf(55), new Fibonacci(10, true).calculate());
   }
 
   @Test
   public void twentiethNumberInFibonacciSequenceRecursive() {
-    assertEquals(6765, new Fibonacci(20, true).calculate());
+    assertEquals(BigInteger.valueOf(6765), new Fibonacci(20, true).calculate());
   }
 
   @Test
   public void twentyFifthNumberInFibonacciSequenceRecursive() {
-    assertEquals(75025, new Fibonacci(25, true).calculate());
+    assertEquals(BigInteger.valueOf(75025), new Fibonacci(25, true).calculate());
+  }
+
+  @Test
+  @Ignore("Recursive is too slow or stuck?")
+  public void fiftiethNumberInFibonacciSequenceRecursive() {
+    assertEquals(BigInteger.valueOf(12586269025L), new Fibonacci(50, true).calculate());
   }
 
   @Test
   public void firstElevenFibonacciSequenceNumbersRecursive() {
-    int[] expected = {0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55};
+    BigInteger[] expected = new BigInteger[11];
+    expected[0] = BigInteger.ZERO;
+    expected[1] = BigInteger.ONE;
+
+    for (int i = 2; i < expected.length; i++) {
+      expected[i] = expected[i - 2].add(expected[i - 1]);
+    }
 
     assertArrayEquals(expected, new Fibonacci(10, true).getSequence());
   }
 
   @Test
-  public void fibonacciSequenceNumbersLowerThanOrEqualToEightRecursive() {
-    Integer[] expected = {0, 1, 1, 2, 3, 5, 8};
+  public void fibonacciSequenceNumbersLowerThanEightRecursive() {
+    BigInteger[] expected = new BigInteger[6];
 
-    List<Integer> list = new Fibonacci(8, true).getSequenceLowerThanN();
+    expected[0] = BigInteger.ZERO;
+    expected[1] = BigInteger.ONE;
 
-    Integer[] result = list.toArray(new Integer[list.size()]);
+    for (int i = 2; i < expected.length; i++) {
+      expected[i] = expected[i - 2].add(expected[i - 1]);
+    }
+
+    List<BigInteger> list = new Fibonacci(8, true).getSequenceLowerThanN();
+
+    BigInteger[] result = list.toArray(new BigInteger[list.size()]);
 
     assertArrayEquals(expected, result);
   }
@@ -59,33 +80,51 @@ public class FibonacciTest {
 
   @Test
   public void tenthNumberInFibonacciSequenceIterative() {
-    assertEquals(55, new Fibonacci(10, false).calculate());
+    assertEquals(new BigInteger("55"), new Fibonacci(10, false).calculate());
   }
 
   @Test
   public void twentiethNumberInFibonacciSequenceIterative() {
-    assertEquals(6765, new Fibonacci(20, false).calculate());
+    assertEquals(new BigInteger("6765"), new Fibonacci(20, false).calculate());
   }
 
   @Test
   public void twentyFifthNumberInFibonacciSequenceIterative() {
-    assertEquals(75025, new Fibonacci(25, false).calculate());
+    assertEquals(new BigInteger("75025"), new Fibonacci(25, false).calculate());
+  }
+
+  @Test
+  public void fiftiethNumberInFibonacciSequenceIterative() {
+    assertEquals(new BigInteger("12586269025"), new Fibonacci(50, false).calculate());
   }
 
   @Test
   public void firstElevenFibonacciSequenceNumbersIterative() {
-    int[] expected = {0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55};
+    BigInteger[] expected = new BigInteger[11];
+    expected[0] = BigInteger.ZERO;
+    expected[1] = BigInteger.ONE;
+
+    for (int i = 2; i < expected.length; i++) {
+      expected[i] = expected[i - 2].add(expected[i - 1]);
+    }
 
     assertArrayEquals(expected, new Fibonacci(10, false).getSequence());
   }
 
   @Test
-  public void fibonacciSequenceNumbersLowerThanOrEqualToEightIterative() {
-    Integer[] expected = {0, 1, 1, 2, 3, 5, 8};
+  public void fibonacciSequenceNumbersLowerThanEightIterative() {
+    BigInteger[] expected = new BigInteger[6];
 
-    List<Integer> list = new Fibonacci(8, false).getSequenceLowerThanN();
+    expected[0] = BigInteger.ZERO;
+    expected[1] = BigInteger.ONE;
 
-    Integer[] result = list.toArray(new Integer[list.size()]);
+    for (int i = 2; i < expected.length; i++) {
+      expected[i] = expected[i - 2].add(expected[i - 1]);
+    }
+
+    List<BigInteger> list = new Fibonacci(8, false).getSequenceLowerThanN();
+
+    BigInteger[] result = list.toArray(new BigInteger[list.size()]);
 
     assertArrayEquals(expected, result);
   }
