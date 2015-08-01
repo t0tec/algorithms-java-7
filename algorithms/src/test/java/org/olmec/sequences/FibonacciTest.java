@@ -49,7 +49,7 @@ public class FibonacciTest {
     expected[1] = BigInteger.ONE;
 
     for (int i = 2; i < expected.length; i++) {
-      expected[i] = expected[i - 2].add(expected[i - 1]);
+      expected[i] = expected[i - 1].add(expected[i - 2]);
     }
 
     assertArrayEquals(expected, new Fibonacci(10, true).getSequence());
@@ -63,7 +63,7 @@ public class FibonacciTest {
     expected[1] = BigInteger.ONE;
 
     for (int i = 2; i < expected.length; i++) {
-      expected[i] = expected[i - 2].add(expected[i - 1]);
+      expected[i] = expected[i - 1].add(expected[i - 2]);
     }
 
     List<BigInteger> list = new Fibonacci(8, true).getSequenceLowerThanN();
@@ -105,7 +105,7 @@ public class FibonacciTest {
     expected[1] = BigInteger.ONE;
 
     for (int i = 2; i < expected.length; i++) {
-      expected[i] = expected[i - 2].add(expected[i - 1]);
+      expected[i] = expected[i - 1].add(expected[i - 2]);
     }
 
     assertArrayEquals(expected, new Fibonacci(10, false).getSequence());
@@ -119,7 +119,7 @@ public class FibonacciTest {
     expected[1] = BigInteger.ONE;
 
     for (int i = 2; i < expected.length; i++) {
-      expected[i] = expected[i - 2].add(expected[i - 1]);
+      expected[i] = expected[i - 1].add(expected[i - 2]);
     }
 
     List<BigInteger> list = new Fibonacci(8, false).getSequenceLowerThanN();
