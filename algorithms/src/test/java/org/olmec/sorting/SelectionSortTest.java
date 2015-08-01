@@ -19,13 +19,13 @@ public class SelectionSortTest extends BaseTest {
   @Test
   @Ignore("Should I need to null check array?")
   public void testNull() {
-    new SelectionSort<Integer>().sort(null);
+    new SelectionSort().sort(null);
   }
 
   @Test
   public void testEmpty() {
     Integer[] array = new Integer[0];
-    new SelectionSort<Integer>().sort(array);
+    new SelectionSort().sort(array);
     assertTrue("Selection sort unsorted error. Result = " + print(array),
                new SortingValidator().isSorted(array));
   }
@@ -33,27 +33,23 @@ public class SelectionSortTest extends BaseTest {
   @Test
   public void testSizeOne() {
     Integer[] array = {1};
-    new SelectionSort<Integer>().sort(array);
+    new SelectionSort().sort(array);
     assertTrue("Selection sort unsorted error. Result = " + print(array),
                new SortingValidator().isSorted(array));
   }
 
   @Test
   public void smallSizedRandomTest() {
-    SelectionSort sort = new SelectionSort();
-
     Integer[] unsorted = createRandom(SIZE_LOW);
-    sort.sort(unsorted);
+    new SelectionSort().sort(unsorted);
     assertTrue("Selection sort unsorted error. Result = " + print(unsorted),
                new SortingValidator().isSorted(unsorted));
   }
 
   @Test
   public void mediumSizedRandomTest() {
-    SelectionSort sort = new SelectionSort();
-
     Integer[] unsorted = createRandom(SIZE_MEDIUM);
-    sort.sort(unsorted);
+    new SelectionSort().sort(unsorted);
     assertTrue("Selection sort unsorted error. Result = " + print(unsorted),
                new SortingValidator().isSorted(unsorted));
   }
@@ -61,30 +57,24 @@ public class SelectionSortTest extends BaseTest {
   @Test
   @Ignore("Takes too long!!!")
   public void bigSizedRandomTest() {
-    SelectionSort sort = new SelectionSort();
-
     Integer[] unsorted = createRandom(SIZE_BIG);
-    sort.sort(unsorted);
+    new SelectionSort().sort(unsorted);
     assertTrue("Selection sort unsorted error. Result = " + print(unsorted),
                new SortingValidator().isSorted(unsorted));
   }
 
   @Test
   public void smallSizedSortedTest() {
-    SelectionSort sort = new SelectionSort();
-
     Integer[] sorted = createSorted(SIZE_LOW);
-    sort.sort(sorted);
+    new SelectionSort().sort(sorted);
     assertTrue("Selection sort unsorted error. Result = " + print(sorted),
                new SortingValidator().isSorted(sorted));
   }
 
   @Test
   public void mediumSizedSortedTest() {
-    SelectionSort sort = new SelectionSort();
-
     Integer[] sorted = createSorted(SIZE_MEDIUM);
-    sort.sort(sorted);
+    new SelectionSort().sort(sorted);
     assertTrue("Selection sort unsorted error. Result = " + print(sorted),
                new SortingValidator().isSorted(sorted));
   }
@@ -92,30 +82,24 @@ public class SelectionSortTest extends BaseTest {
   @Test
   @Ignore("Takes too long!!!")
   public void bigSizedSortedTest() {
-    SelectionSort sort = new SelectionSort();
-
     Integer[] sorted = createSorted(SIZE_BIG);
-    sort.sort(sorted);
+    new SelectionSort().sort(sorted);
     assertTrue("Selection sort unsorted error. Result = " + print(sorted),
                new SortingValidator().isSorted(sorted));
   }
 
   @Test
   public void smallSizedReversedTest() {
-    SelectionSort sort = new SelectionSort();
-
     Integer[] reversed = createReversed(SIZE_LOW);
-    sort.sort(reversed);
+    new SelectionSort().sort(reversed);
     assertTrue("Selection sort unsorted error. Result = " + print(reversed),
                new SortingValidator().isSorted(reversed));
   }
 
   @Test
   public void mediumSizedReversedTest() {
-    SelectionSort sort = new SelectionSort();
-
     Integer[] reversed = createReversed(SIZE_MEDIUM);
-    sort.sort(reversed);
+    new SelectionSort().sort(reversed);
     assertTrue("Selection sort unsorted error. Result = " + print(reversed),
                new SortingValidator().isSorted(reversed));
   }
@@ -123,10 +107,8 @@ public class SelectionSortTest extends BaseTest {
   @Test
   @Ignore("Takes too long!!!")
   public void bigSizedReversedTest() {
-    SelectionSort sort = new SelectionSort();
-
     Integer[] reversed = createReversed(SIZE_BIG);
-    sort.sort(reversed);
+    new SelectionSort().sort(reversed);
     assertTrue("Selection sort unsorted error. Result = " + print(reversed),
                new SortingValidator().isSorted(reversed));
   }

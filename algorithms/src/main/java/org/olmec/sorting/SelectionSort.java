@@ -13,19 +13,18 @@ package org.olmec.sorting;
  *
  * http://www.sorting-algorithms.com/selection-sort & http://en.wikipedia.org/wiki/Selection_sort
  *
- * @param <T> the type of objects to be sorted
  * @author t0tec (t0tec.olmec@gmail.com)
  * @version $Id$
  * @since 1.0
  */
-public class SelectionSort<T extends Comparable<T>> {
+public class SelectionSort {
 
   /**
    * Sort the array by using selection sort algorithm
    *
    * @param array the array
    */
-  public void sort(T[] array) {
+  public <T extends Comparable<T>> void sort(T[] array) {
     int n = array.length;
     for (int i = 0; i < n; i++) {
       int min = i;
@@ -39,14 +38,15 @@ public class SelectionSort<T extends Comparable<T>> {
   }
 
   /**
-   * Swap a[i] and a[j]
+   * Swap array[i] and array[j]
    *
    * @param array the array
    * @param i     the index i
    * @param j     the index j
+   * @param <T>   the type of the objects
    */
-  private void swap(Comparable<T>[] array, int i, int j) {
-    Comparable<T> swap = array[i];
+  private <T extends Comparable<T>> void swap(T[] array, int i, int j) {
+    T swap = array[i];
     array[i] = array[j];
     array[j] = swap;
   }

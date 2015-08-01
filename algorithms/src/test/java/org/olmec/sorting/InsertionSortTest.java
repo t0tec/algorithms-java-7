@@ -19,13 +19,13 @@ public class InsertionSortTest extends BaseTest {
   @Test
   @Ignore("Should I need to null check array?")
   public void testNull() {
-    new InsertionSort<Integer>().sort(null);
+    new InsertionSort().sort(null);
   }
 
   @Test
   public void testEmpty() {
     Integer[] array = new Integer[0];
-    new InsertionSort<Integer>().sort(array);
+    new InsertionSort().sort(array);
     assertTrue("Insertion sort unsorted error. Result = " + print(array),
                new SortingValidator().isSorted(array));
   }
@@ -33,27 +33,23 @@ public class InsertionSortTest extends BaseTest {
   @Test
   public void testSizeOne() {
     Integer[] array = {1};
-    new InsertionSort<Integer>().sort(array);
+    new InsertionSort().sort(array);
     assertTrue("Insertion sort unsorted error. Result = " + print(array),
                new SortingValidator().isSorted(array));
   }
 
   @Test
   public void smallSizedRandomTest() {
-    InsertionSort sort = new InsertionSort();
-
     Integer[] unsorted = createRandom(SIZE_LOW);
-    sort.sort(unsorted);
+    new InsertionSort().sort(unsorted);
     assertTrue("Insertion sort unsorted error. Result = " + print(unsorted),
                new SortingValidator().isSorted(unsorted));
   }
 
   @Test
   public void mediumSizedRandomTest() {
-    InsertionSort sort = new InsertionSort();
-
     Integer[] unsorted = createRandom(SIZE_MEDIUM);
-    sort.sort(unsorted);
+    new InsertionSort().sort(unsorted);
     assertTrue("Insertion sort unsorted error. Result = " + print(unsorted),
                new SortingValidator().isSorted(unsorted));
   }
@@ -61,60 +57,48 @@ public class InsertionSortTest extends BaseTest {
   @Test
   @Ignore("Takes too long!!!")
   public void bigSizedRandomTest() {
-    InsertionSort sort = new InsertionSort();
-
     Integer[] unsorted = createRandom(SIZE_BIG);
-    sort.sort(unsorted);
+    new InsertionSort().sort(unsorted);
     assertTrue("Insertion sort unsorted error. Result = " + print(unsorted),
                new SortingValidator().isSorted(unsorted));
   }
 
   @Test
   public void smallSizedSortedTest() {
-    InsertionSort sort = new InsertionSort();
-
     Integer[] sorted = createSorted(SIZE_LOW);
-    sort.sort(sorted);
+    new InsertionSort().sort(sorted);
     assertTrue("Insertion sort unsorted error. Result = " + print(sorted),
                new SortingValidator().isSorted(sorted));
   }
 
   @Test
   public void mediumSizedSortedTest() {
-    InsertionSort sort = new InsertionSort();
-
     Integer[] sorted = createSorted(SIZE_MEDIUM);
-    sort.sort(sorted);
+    new InsertionSort().sort(sorted);
     assertTrue("Insertion sort unsorted error. Result = " + print(sorted),
                new SortingValidator().isSorted(sorted));
   }
 
   @Test
   public void bigSizedSortedTest() {
-    InsertionSort sort = new InsertionSort();
-
     Integer[] sorted = createSorted(SIZE_BIG);
-    sort.sort(sorted);
+    new InsertionSort().sort(sorted);
     assertTrue("Insertion sort unsorted error. Result = " + print(sorted),
                new SortingValidator().isSorted(sorted));
   }
 
   @Test
   public void smallSizedReversedTest() {
-    InsertionSort sort = new InsertionSort();
-
     Integer[] reversed = createReversed(SIZE_LOW);
-    sort.sort(reversed);
+    new InsertionSort().sort(reversed);
     assertTrue("Insertion sort unsorted error. Result = " + print(reversed),
                new SortingValidator().isSorted(reversed));
   }
 
   @Test
   public void mediumSizedReversedTest() {
-    InsertionSort sort = new InsertionSort();
-
     Integer[] reversed = createReversed(SIZE_MEDIUM);
-    sort.sort(reversed);
+    new InsertionSort().sort(reversed);
     assertTrue("Insertion sort unsorted error. Result = " + print(reversed),
                new SortingValidator().isSorted(reversed));
   }
@@ -122,10 +106,8 @@ public class InsertionSortTest extends BaseTest {
   @Test
   @Ignore("Takes too long!!!")
   public void bigSizedReversedTest() {
-    InsertionSort sort = new InsertionSort();
-
     Integer[] reversed = createReversed(SIZE_BIG);
-    sort.sort(reversed);
+    new InsertionSort().sort(reversed);
     assertTrue("Insertion sort unsorted error. Result = " + print(reversed),
                new SortingValidator().isSorted(reversed));
   }

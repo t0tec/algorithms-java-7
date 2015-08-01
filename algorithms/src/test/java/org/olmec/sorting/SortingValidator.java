@@ -10,7 +10,7 @@ import java.util.Comparator;
  * @version $Id$
  * @since 1.0
  */
-public class SortingValidator<T extends Comparable<T>> {
+public class SortingValidator {
 
   /**
    * is i < j ?

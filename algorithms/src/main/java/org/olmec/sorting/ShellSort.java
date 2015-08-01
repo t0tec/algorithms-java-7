@@ -19,7 +19,7 @@ package org.olmec.sorting;
  * @version $Id$
  * @since 1.0
  */
-public class ShellSort<T extends Comparable<T>> {
+public class ShellSort {
 
   /**
    * Sort the array by using shell sort algorithm with Knuth's increment sequence (1, 4, 13, 40,
@@ -27,7 +27,7 @@ public class ShellSort<T extends Comparable<T>> {
    *
    * @param array the array
    */
-  public void sort(T[] array) {
+  public <T extends Comparable<T>> void sort(T[] array) {
     int n = array.length;
 
     // 3x + 1 increment sequence:  1, 4, 13, 40, ...
@@ -49,14 +49,15 @@ public class ShellSort<T extends Comparable<T>> {
   }
 
   /**
-   * Swap a[i] and a[j]
+   * Swap array[i] and array[j]
    *
    * @param array the array
    * @param i     the index i
    * @param j     the index j
+   * @param <T>   the type of the objects
    */
-  private void swap(Comparable<T>[] array, int i, int j) {
-    Comparable<T> swap = array[i];
+  private <T extends Comparable<T>> void swap(T[] array, int i, int j) {
+    T swap = array[i];
     array[i] = array[j];
     array[j] = swap;
   }

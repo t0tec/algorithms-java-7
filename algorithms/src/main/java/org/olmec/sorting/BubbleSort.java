@@ -21,16 +21,15 @@ package org.olmec.sorting;
  * @version $Id$
  * @since 1.0
  */
-public class BubbleSort<T extends Comparable<T>> {
+public class BubbleSort {
 
   /**
-   * Sort the array by using bubble sort algorithm.
-   * Optimized so, the inner loop can avoid looking at
-   * the last n-1 items (which are already sorted) when running for the n-th time
+   * Sort the array by using bubble sort algorithm. Optimized so, the inner loop can avoid looking
+   * at the last n-1 items (which are already sorted) when running for the n-th time
    *
    * @param array the array
    */
-  public void sort(T[] array) {
+  public <T extends Comparable<T>> void sort(T[] array) {
     int n = array.length;
     boolean swapped = true;
     while (swapped) {
@@ -46,14 +45,15 @@ public class BubbleSort<T extends Comparable<T>> {
   }
 
   /**
-   * Swap a[i] and a[j]
+   * Swap array[i] and array[j]
    *
    * @param array the array
    * @param i     the index i
    * @param j     the index j
+   * @param <T>   the type of the objects
    */
-  private void swap(Comparable<T>[] array, int i, int j) {
-    Comparable<T> swap = array[i];
+  private <T extends Comparable<T>> void swap(T[] array, int i, int j) {
+    T swap = array[i];
     array[i] = array[j];
     array[j] = swap;
   }
@@ -68,17 +68,5 @@ public class BubbleSort<T extends Comparable<T>> {
    */
   private <T extends Comparable<T>> boolean less(T i, T j) {
     return i.compareTo(j) < 0;
-  }
-
-  public static void main(String[] args) {
-    BubbleSort sort = new BubbleSort();
-
-    Integer[] array = {5, 4, 3, 2, 1};
-
-    sort.sort(array);
-
-    for (Integer i : array) {
-      System.out.println(i);
-    }
   }
 }
