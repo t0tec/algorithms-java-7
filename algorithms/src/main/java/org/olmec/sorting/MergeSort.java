@@ -27,9 +27,10 @@ package org.olmec.sorting;
 public class MergeSort {
 
   /**
-   * Sort the array by using merge sort algorithm
+   * Sort the array by using merge sort algorithm (top-down merge sort)
    *
    * @param array the array
+   * @param <T>   the type of the objects
    */
   public <T extends Comparable<T>> void sort(T[] array) {
     T[] aux = (T[]) new Comparable[array.length];
@@ -37,44 +38,61 @@ public class MergeSort {
     assert isSorted(array);
   }
 
-  // stably merge a[low .. mid] with a[mid + 1 ..high] using aux[low .. high]
-  private <T extends Comparable<T>> void merge(T[] a, T[] aux, int low, int mid, int high) {
+  /**
+   * stably merge array[low .. mid] with array[mid + 1 ..high] using aux[low .. high]
+   *
+   * @param array the array
+   * @param aux   the auxiliary array
+   * @param low   the lowest index
+   * @param mid   the index in the middle
+   * @param high  the highest index
+   * @param <T>   the type of the objects
+   */
+  private <T extends Comparable<T>> void merge(T[] array, T[] aux, int low, int mid, int high) {
     // precondition: a[low .. mid] and a[mid + 1 .. high] are sorted sub arrays
-    assert isSorted(a, low, mid);
-    assert isSorted(a, mid + 1, high);
+    assert isSorted(array, low, mid);
+    assert isSorted(array, mid + 1, high);
 
     // copy to aux[]
     for (int k = low; k <= high; k++) {
-      aux[k] = a[k];
+      aux[k] = array[k];
     }
 
-    // merge back to a[]
+    // merge back to array[]
     int i = low, j = mid + 1;
     for (int k = low; k <= high; k++) {
       if (i > mid) {
-        a[k] = aux[j++];   // this copying is unnecessary
+        array[k] = aux[j++];   // this copying is unnecessary
       } else if (j > high) {
-        a[k] = aux[i++];
+        array[k] = aux[i++];
       } else if (less(aux[j], aux[i])) {
-        a[k] = aux[j++];
+        array[k] = aux[j++];
       } else {
-        a[k] = aux[i++];
+        array[k] = aux[i++];
       }
     }
 
-    // post condition: a[low .. high] is sorted
-    assert isSorted(a, low, high);
+    // post condition: array[low .. high] is sorted
+    assert isSorted(array, low, high);
   }
 
-  // merge sort a[low..high] using auxiliary array aux[low..high]
-  private <T extends Comparable<T>> void sort(T[] a, T[] aux, int low, int high) {
+  /**
+   * merge sort array[low..high] using auxiliary array aux[low..high]
+   *
+   * @param array the original array
+   * @param aux   auxiliary array
+   * @param low   aux[low]
+   * @param high  aux[high]
+   * @param <T>   the type of the objects
+   */
+  private <T extends Comparable<T>> void sort(T[] array, T[] aux, int low, int high) {
     if (high <= low) {
       return;
     }
     int mid = low + (high - low) / 2;
-    sort(a, aux, low, mid);
-    sort(a, aux, mid + 1, high);
-    merge(a, aux, low, mid, high);
+    sort(array, aux, low, mid);
+    sort(array, aux, mid + 1, high);
+    merge(array, aux, low, mid, high);
   }
 
   /**
@@ -93,6 +111,7 @@ public class MergeSort {
    * Check if array is sorted
    *
    * @param array the given array
+   * @param <T>   the type of the objects
    * @return true if array is sorted and otherwise false
    */
   private <T extends Comparable<T>> boolean isSorted(T[] array) {
@@ -105,6 +124,7 @@ public class MergeSort {
    * @param array the given array
    * @param low   the lowest index to start check from
    * @param high  the highest index to start check to (inclusive)
+   * @param <T>   the type of the objects
    * @return true if array is sorted and otherwise false
    */
   private <T extends Comparable<T>> boolean isSorted(T[] array, int low, int high) {

@@ -122,7 +122,7 @@ public class Fibonacci {
    */
   private void validate(final int n) {
     if (n < 0) {
-      throw new IllegalArgumentException("Given number can't be negative!");
+      throw new IllegalArgumentException("Parameter n must be zero or positive!");
     }
   }
 }

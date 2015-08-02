@@ -10,7 +10,7 @@ import static org.junit.Assert.assertTrue;
  * @version $Id$
  * @since 1.0
  */
-public class MergeSortTest extends BaseTest {
+public class QuickSortTest extends BaseTest {
 
   private static final int SIZE_LOW = 10;
   private static final int SIZE_MEDIUM = 10000;
@@ -19,94 +19,94 @@ public class MergeSortTest extends BaseTest {
   @Test
   @Ignore("Should I need to null check array?")
   public void testNull() {
-    new MergeSort().sort(null);
+    new QuickSort().sort(null);
   }
 
   @Test
   public void testEmpty() {
     Integer[] array = new Integer[0];
-    new MergeSort().sort(array);
-    assertTrue("Merge sort unsorted error. Result = " + print(array),
+    new QuickSort().sort(array);
+    assertTrue("Quick sort unsorted error. Result = " + print(array),
                new SortingValidator().isSorted(array));
   }
 
   @Test
   public void testSizeOne() {
     Integer[] array = {1};
-    new MergeSort().sort(array);
-    assertTrue("Merge sort unsorted error. Result = " + print(array),
+    new QuickSort().sort(array);
+    assertTrue("Quick sort unsorted error. Result = " + print(array),
                new SortingValidator().isSorted(array));
   }
 
   @Test
   public void smallSizedRandomTest() {
     Integer[] unsorted = createRandom(SIZE_LOW);
-    new MergeSort().sort(unsorted);
-    assertTrue("Merge sort unsorted error. Result = " + print(unsorted),
+    new QuickSort().sort(unsorted);
+    assertTrue("Quick sort unsorted error. Result = " + print(unsorted),
                new SortingValidator().isSorted(unsorted));
   }
 
   @Test
   public void mediumSizedRandomTest() {
     Integer[] unsorted = createRandom(SIZE_MEDIUM);
-    new MergeSort().sort(unsorted);
-    assertTrue("Merge sort unsorted error. Result = " + print(unsorted),
+    new QuickSort().sort(unsorted);
+    assertTrue("Quick sort unsorted error. Result = " + print(unsorted),
                new SortingValidator().isSorted(unsorted));
   }
 
   @Test
   public void bigSizedRandomTest() {
     Integer[] unsorted = createRandom(SIZE_BIG);
-    new MergeSort().sort(unsorted);
-    assertTrue("Merge sort unsorted error. Result = " + print(unsorted),
+    new QuickSort().sort(unsorted);
+    assertTrue("Quick sort unsorted error. Result = " + print(unsorted),
                new SortingValidator().isSorted(unsorted));
   }
 
   @Test
   public void smallSizedSortedTest() {
     Integer[] sorted = createSorted(SIZE_LOW);
-    new MergeSort().sort(sorted);
-    assertTrue("Merge sort unsorted error. Result = " + print(sorted),
+    new QuickSort().sort(sorted);
+    assertTrue("Quick sort unsorted error. Result = " + print(sorted),
                new SortingValidator().isSorted(sorted));
   }
 
   @Test
   public void mediumSizedSortedTest() {
     Integer[] sorted = createSorted(SIZE_MEDIUM);
-    new MergeSort().sort(sorted);
-    assertTrue("Merge sort unsorted error. Result = " + print(sorted),
+    new QuickSort().sort(sorted);
+    assertTrue("Quick sort unsorted error. Result = " + print(sorted),
                new SortingValidator().isSorted(sorted));
   }
 
   @Test
   public void bigSizedSortedTest() {
     Integer[] sorted = createSorted(SIZE_BIG);
-    new MergeSort().sort(sorted);
-    assertTrue("Merge sort unsorted error. Result = " + print(sorted),
+    new QuickSort().sort(sorted);
+    assertTrue("Quick sort unsorted error. Result = " + print(sorted),
                new SortingValidator().isSorted(sorted));
   }
 
   @Test
   public void smallSizedReversedTest() {
     Integer[] reversed = createReversed(SIZE_LOW);
-    new MergeSort().sort(reversed);
-    assertTrue("Merge sort unsorted error. Result = " + print(reversed),
+    new QuickSort().sort(reversed);
+    assertTrue("Quick sort unsorted error. Result = " + print(reversed),
                new SortingValidator().isSorted(reversed));
   }
 
   @Test
   public void mediumSizedReversedTest() {
     Integer[] reversed = createReversed(SIZE_MEDIUM);
-    new MergeSort().sort(reversed);
-    assertTrue("Merge sort unsorted error. Result = " + print(reversed),
+    new QuickSort().sort(reversed);
+    assertTrue("Quick sort unsorted error. Result = " + print(reversed),
                new SortingValidator().isSorted(reversed));
   }
 
   @Test
   public void bigSizedReversedTest() {
     Integer[] reversed = createReversed(SIZE_BIG);
-    new MergeSort().sort(reversed);
-    assertTrue("Merge sort unsorted error. Result = " + print(reversed),
+    new QuickSort().sort(reversed);
+    assertTrue("Quick sort unsorted error. Result = " + print(reversed),
                new SortingValidator().isSorted(reversed));
   }
 }
