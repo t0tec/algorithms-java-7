@@ -25,7 +25,7 @@ public class Fibonacci {
    * Constructor given n and recursive parameters
    *
    * @param n         the number n to give to sequence Fn
-   * @param recursive calculate Fibonacci number(s) recursive and otherwise iterative
+   * @param recursive iterative Fibonacci number(s) recursive and otherwise iterative
    */
   public Fibonacci(final int n, final boolean recursive) {
     validate(n);

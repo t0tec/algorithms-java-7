@@ -31,16 +31,17 @@ public class BubbleSort {
    */
   public <T extends Comparable<T>> void sort(T[] array) {
     int n = array.length;
+    int j = 0;
     boolean swapped = true;
     while (swapped) {
       swapped = false;
-      for (int i = 1; i <= n - 1; i++) {
-        if (less(array[i], array[i - 1])) {
-          swap(array, i, i - 1);
+      j++;
+      for (int i = 0; i < n - j; i++) {
+        if (less(array[i + 1], array[i])) {
+          swap(array, i + 1, i);
           swapped = true;
         }
       }
-      n--;
     }
   }
 
