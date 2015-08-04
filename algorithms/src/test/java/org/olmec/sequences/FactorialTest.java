@@ -58,17 +58,53 @@ public class FactorialTest {
   }
 
   @Test
-  public void tenthFactorialRecursive() {
+  public void tenFactorialRecursive() {
     assertEquals(3628800, new Factorial().recursive(10));
   }
 
   @Test
-  public void tenthFactorialTailRecursive() {
+  public void tenFactorialTailRecursive() {
     assertEquals(3628800, new Factorial().tailRecursive(10));
   }
 
   @Test
-  public void tenthFactorialIterative() {
-    assertEquals(3628800, new Factorial().recursive(10));
+  public void tenFactorialIterative() {
+    assertEquals(3628800, new Factorial().iterative(10));
+  }
+
+  @Test
+  public void fifteenFactorialRecursive() {
+    assertEquals(1307674368000L, new Factorial().recursive(15));
+  }
+
+  @Test
+  public void fifteenFactorialTailRecursive() {
+    assertEquals(1307674368000L, new Factorial().tailRecursive(15));
+  }
+
+  @Test
+  public void fifteenFactorialIterative() {
+    assertEquals(1307674368000L, new Factorial().iterative(15));
+  }
+
+
+  @Test(expected = IllegalArgumentException.class)
+  public void shouldNotAcceptNegativeValuesTrailingZeros() {
+    new Factorial().trailingZeros(-1);
+  }
+
+  @Test
+  public void trailingNumbersZeroFactorial() {
+    assertEquals(0, new Factorial().trailingZeros(0));
+  }
+
+  @Test
+  public void trailingNumbersFiveFactorial() {
+    assertEquals(1, new Factorial().trailingZeros(5));
+  }
+
+  @Test
+  public void trailingNumbersHugeFactorial() {
+    assertEquals(31, new Factorial().trailingZeros(128));
   }
 }
