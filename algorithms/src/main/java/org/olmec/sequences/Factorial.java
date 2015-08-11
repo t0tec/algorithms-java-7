@@ -7,6 +7,7 @@ package org.olmec.sequences;
  * Formula: n! = n * (n − 1)!
  *
  * http://en.wikipedia.org/wiki/Factorial
+ * https://en.wikipedia.org/wiki/Trailing_zero
  *
  * @author t0tec (t0tec.olmec@gmail.com)
  * @version $Id$
@@ -26,7 +27,7 @@ public class Factorial {
       return 1L;
     }
 
-    long accumulator = 1;
+    long accumulator = 1L;
     int i = n;
     while (i >= 2) {
       accumulator *= i;
