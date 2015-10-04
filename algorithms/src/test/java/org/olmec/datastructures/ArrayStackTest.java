@@ -1,7 +1,9 @@
 package org.olmec.datastructures;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
+import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 import static org.junit.Assert.assertEquals;
@@ -62,6 +64,19 @@ public class ArrayStackTest {
     }
     assertTrue(stack.isEmpty());
     assertEquals(stack.size(), 0);
+  }
+
+  @Test
+  @Ignore("http://stackoverflow.com/questions/14920164/how-to-junit-test-a-iterator")
+  public void testIteratorStack() {
+    ArrayStack<Integer> stack = new ArrayStack<Integer>();
+    int numberOfPushes = (int) (Math.random() * 10 + 1);
+    for (int i = 0; i < numberOfPushes; i++) {
+      stack.push(i);
+    }
+
+    Iterator<Integer> itr = stack.iterator();
+    assertTrue(itr.hasNext());
   }
 
   @Test(expected = NoSuchElementException.class)
